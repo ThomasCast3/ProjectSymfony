@@ -5,59 +5,42 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
- */
+#[ORM\Entity(repositoryClass: UserRepository::class)]
 class User
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $prenom;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $email = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $address = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $phone = null;
+
+    #[ORM\Column]
+    private ?int $age = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setName(?string $name): self
     {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
+        $this->name = $name;
 
         return $this;
     }
@@ -67,9 +50,45 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(?string $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }
