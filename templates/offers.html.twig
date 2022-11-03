@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr-FR">
+    <head>
+    <meta charset="UTF-8">
+    <title>Offres d'emploi</title>
+    </head>
+    <body>
+        <header>
+            {#% include 'header.html.twig' %#}
+        </header>
+        <main>
+            <div class="add-offer">
+                <p>Ajouter une nouvelle offre</p>
+                <label>
+                    <input type="text" placeholder="Nom de l'offre">
+                </label>
+                {% for skill in skills %}
+                    {{ skill }}
+                    <input type="checkbox" value="{{ skill }}">
+                {% endfor %}
+                <button onclick="addOffer()">Publier l'offre</button>
+            </div>
+            <div class="offers-list">
+                <div class="offer">
+                    {% for offer in offers %}
+                        <p>Entreprise: {{ offer.company }}<p>
+                        <p>Nom de l'offre: {{ offer.company }}<p>
+                        <p>Compétences requises: </p>
+                        {% for skill in offer.skills %}
+                            {{ skill.name }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <script>
+            function addOffer() {
+                alert("addOffer(void);")
+            }
+        </script>
+        <style>
+            .offers-list {
+                background-color: white;
+            }
+        </style>
+    </body>
+</html>
