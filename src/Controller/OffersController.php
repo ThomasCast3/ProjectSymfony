@@ -30,6 +30,7 @@ class OffersController extends AbstractController
                 ->findOneBy(array('id' => $offer->getId()));
 
             $obj = (object)[
+                'id' => $offer->getId(),
                 'company' => $company->getName(),
                 'skills' => $skills
             ];
