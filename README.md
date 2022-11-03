@@ -1,4 +1,7 @@
+
 # Symfony projet
+
+
 
 ceci est le projet
 
@@ -27,9 +30,11 @@ Start symfony
 ```bash
   symfony server:start  
 ```
+
 ## Auteur
 
 - [@Getsugo](https://github.com/Getsugo)
 - [@ThomasCast3](https://github.com/ThomasCast3)
 - [@EtienneRld](https://github.com/EtienneRld)
 - [@VaheKri](https://github.com/VaheKri)
+
