@@ -1,4 +1,5 @@
-# Symfony projet
+# ProjectSymfony
+# Compte Ã  rebours
 
 ceci est le projet
 
@@ -16,7 +17,7 @@ Install symfony with brew
   brew install symfony-cli/tap/symfony-cli
 ```
 
-Install composer
+Install composer 
 
 ```bash
   composer install
@@ -27,6 +28,8 @@ Start symfony
 ```bash
   symfony server:start  
 ```
+
+
 ## Auteur
 
 - [@Getsugo](https://github.com/Getsugo)
