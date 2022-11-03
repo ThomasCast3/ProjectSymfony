@@ -29,6 +29,20 @@ Start symfony
   symfony server:start  
 ```
 
+fixture : 
+
+```bash
+composer install
+php bin/console doctrine:mi:di        
+php bin/console doctrine:mi:mi        
+php bin/console doctrine:fixtures:load
+```
+
+Test
+
+```bash
+symfony composer req phpunit --dev
+```
 
 ## Auteur
 
