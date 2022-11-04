@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -12,6 +13,9 @@ class User
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    #[ORM\ManyToMany(targetEntity: Skills::class, inversedBy: "users")]
+    private  $skillUser;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
@@ -28,9 +32,24 @@ class User
     #[ORM\Column]
     private ?int $age = null;
 
+    public function __construct(){
+        $this->users = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?int $id): self
+    {
+        $this->idUser = $id;
+        return $this;
     }
 
     public function getName(): ?string
@@ -41,7 +60,6 @@ class User
     public function setName(?string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -91,5 +109,12 @@ class User
         $this->age = $age;
 
         return $this;
+    }
+
+    public function  __toString(): string
+    {
+        // TODO: Implement __toString() method.
+        $result = $this->name . " " . $this->address;
+        return (string)$result;
     }
 }
