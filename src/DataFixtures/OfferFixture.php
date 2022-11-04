@@ -17,6 +17,7 @@ class OfferFixture extends Fixture
             $offer->setIdOffer($faker->numberBetween(0,4));
             $offer->setIdComp($faker->numberBetween(0,4));
             $offer->setMatched(false);
+            $offer->setCompany($this->getReference(CompanyFixture::COMPANY_MICROSOFT));
             $manager->persist($offer);
         }
         $manager->flush();

@@ -8,13 +8,14 @@ use Doctrine\Persistence\ObjectManager;
 
 class CompanyFixture extends Fixture
 {
+    public final const COMPANY_MICROSOFT = "COMPANY_MICROSOFT";
     public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 5; $i++) {
-            $company = new Company();
-            $company->setName($i);
-            $manager->persist($company);
-        }
+        $microsoft = new Company();
+        $microsoft->setName("Microsoft");
+        $this->addReference(self::COMPANY_MICROSOFT, $microsoft);
+        $manager->persist($microsoft);
+
         $manager->flush();
     }
 }

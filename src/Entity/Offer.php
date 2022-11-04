@@ -15,7 +15,7 @@ class Offer
     private ?int $id = null;
 
     #[ORM\ManyToMany(targetEntity: Skills::class, inversedBy: "Offers")]
-    private  $Offer;
+    private Skills $OfferSkill;
 
     #[ORM\ManyToOne(targetEntity: Company::class, inversedBy: "Offers")]
     private  Company $company;
