@@ -13,6 +13,9 @@ class User
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column]
+    private ?int $idUser = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
@@ -33,6 +36,17 @@ class User
         return $this->id;
     }
 
+    public function getIdUser(): ?int
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?int $id): self
+    {
+        $this->idUser = $id;
+        return $this;
+    }
+
     public function getName(): ?string
     {
         return $this->name;
@@ -41,7 +55,6 @@ class User
     public function setName(?string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -91,5 +104,12 @@ class User
         $this->age = $age;
 
         return $this;
+    }
+
+    public function  __toString(): string
+    {
+        // TODO: Implement __toString() method.
+        $result = $this->name . " " . $this->address;
+        return (string)$result;
     }
 }
