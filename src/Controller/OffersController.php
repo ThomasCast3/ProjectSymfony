@@ -38,7 +38,6 @@ class OffersController extends AbstractController
                 continue;
             }
 
-
             $obj = (object)[
                 "id" => $offer->getId(),
                 "name" => $offer->getName(),
