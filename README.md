@@ -1,7 +1,5 @@
 # ProjectSymfony
-# Compte Ã  rebours
 
-ceci est le projet
 
 ## Installation
 
