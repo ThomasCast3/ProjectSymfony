@@ -17,6 +17,9 @@ class Offer
     private ?int $id_comp = null;
 
     #[ORM\Column]
+    private ?string $name = null;
+
+    #[ORM\Column]
     private ?bool $matched = null;
 
     public function getId(): ?int
@@ -32,6 +35,18 @@ class Offer
     public function setIdComp(int $id_comp): self
     {
         $this->id_comp = $id_comp;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
