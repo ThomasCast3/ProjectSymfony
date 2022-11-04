@@ -16,6 +16,7 @@ class OfferFixture extends Fixture
             $offer = new Offer();
             $offer->setIdOffer($faker->numberBetween(0,4));
             $offer->setIdComp($faker->numberBetween(0,4));
+            $offer->setName($faker->name);
             $offer->setMatched(false);
             $manager->persist($offer);
         }

@@ -35,7 +35,7 @@ class MatchController extends AbstractController
             for ($offer=0;$offer<count($offers);$offer ++){
                 $O_skills = [];
                 for ($offer_skill=0;$offer_skill<count($offer_skills);$offer_skill++){
-                    if($offers[$offer]->getIdOffer()==$offer_skills[$offer_skill]->getIdOffer()) {
+                    if($offers[$offer]->getId()==$offer_skills[$offer_skill]->getIdOffer()) {
                         array_push($O_skills,$offer_skills[$offer_skill]);
                     }
                 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Faker;
 use App\Entity\Company;
 use App\Entity\Offer;
 use App\Entity\SkillOffer;
@@ -18,6 +19,7 @@ class OffersController extends AbstractController
 {
     #[Route("/offers", name: "offers")]
     public function main(Request $request, ManagerRegistry $managerRegistry): Response {
+        $faker = Faker\Factory::create('fr_FR');
         $offers = [];
 
         $db_offers = $managerRegistry->getRepository(Offer::class)->findAll();
@@ -90,9 +92,8 @@ class OffersController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $managerRegistry->getManager();
             $data = $form->getData();
-
             $offer = new Offer();
-
+            $offer->setIdOffer($faker->numberBetween(0,4));
             $offer->setIdComp($data["company"]);
             $offer->setName($data["name"]);
             $offer->setMatched(false);

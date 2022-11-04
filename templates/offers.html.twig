@@ -1,14 +1,6 @@
-<!doctype html>
-<html lang="fr-FR">
-    <head>
-    <meta charset="UTF-8">
-    <title>Offres d'emploi</title>
-    </head>
-    <body>
-        <header>
-            {#% include 'header.html.twig' %#}
-        </header>
-        <main>
+{% include 'home.html.twig' %}
+{% block body %}
+
             <div class="add">
                 {% if form is defined %}
                     <h2>Ajouter une nouvelle offre d'emploi</h2>
@@ -31,6 +23,5 @@
                     </div>
                 {% endfor %}
             </div>
-        </main>
-    </body>
-</html>
+
+{% endblock %}
