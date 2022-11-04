@@ -18,7 +18,6 @@ class SkillUserFixture extends Fixture
             $skill_user->setname("devellopeur");
             $manager->persist($skill_user);
         }
-
         $manager->flush();
     }
 }

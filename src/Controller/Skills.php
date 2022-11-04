@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class skills extends AbstractController
+class Skills extends AbstractController
 {
     #[Route('/skills', name: 'skills')]
     public function index(Request $request, ManagerRegistry $managerRegistry): Response
@@ -20,19 +20,15 @@ class skills extends AbstractController
         $skills->handleRequest($request);
         if ($skills->isSubmitted() && $skills->isValid()) {
             $data = $skills->getData();
-            // ... perform some action, such as saving the data to the database
-            // for example, if SkillUser is a Doctrine entity, save it!
             $entityManager = $managerRegistry->getManager();
             $entityManager->persist($skilluser);
             $entityManager->flush();
             return $this->redirectToRoute('skills');
         }
-
         return $this->render('indexe.html.twig', [
             'skills' => $skills->createView()
         ]);
     }
-
 }
 
 
