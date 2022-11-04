@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr-FR">
+    <head>
+    <meta charset="UTF-8">
+    <title>Offres d'emploi</title>
+    </head>
+    <body>
+        <header>
+            {#% include 'header.html.twig' %#}
+        </header>
+        <main>
+            <div class="add">
+                {% if form is defined %}
+                    <h2>Ajouter une nouvelle offre d'emploi</h2>
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                {% endif %}
+            </div>
+            <h2>Liste des offres d'emploi</h2>
+            <div class="offers">
+                {% for offer in offers %}
+                    <div id="{{ offer.id }}">
+                        <p id="company-name">Entreprise: {{ offer.company }}</p>
+                       <p id="offer-name">Nom de l'offre: {{ offer.name }}</p>
+                        <div id="skills">Compétences requises:
+                            {% for skill in offer.skills %}
+                                <p>{{ skill.name }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+    </body>
+</html>

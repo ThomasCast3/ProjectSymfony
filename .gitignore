@@ -52,6 +52,6 @@
 /.web-server-pid
 
 # Custom files
-/.DS_Store
+.DS_Store
 /.idea
 /.env.local
