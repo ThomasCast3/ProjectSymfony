@@ -47,4 +47,11 @@ class SkillUser
 
         return $this;
     }
+
+    public function  __toString(): string
+    {
+        // TODO: Implement __toString() method.
+        $result = $this->name . " " . $this->id_user;
+        return (string)$result;
+    }
 }

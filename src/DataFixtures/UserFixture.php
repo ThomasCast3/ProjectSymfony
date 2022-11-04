@@ -14,6 +14,7 @@ class UserFixture extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         for ($i=0;$i<5;$i++) {
             $user = new User();
+            $user->setIdUser($faker->numberBetween(0,4));
             $user->setName($faker->name);
             $user->setAddress($faker->address);
             $user->setAge($faker->numberBetween(18,70));

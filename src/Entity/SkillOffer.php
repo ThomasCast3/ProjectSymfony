@@ -44,7 +44,13 @@ class SkillOffer
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
+    }
+
+    public function  __toString(): string
+    {
+        // TODO: Implement __toString() method.
+        $result = $this->name . " " . $this->id_offer;
+        return (string)$result;
     }
 }
