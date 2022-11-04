@@ -28,7 +28,7 @@ class FormUserController extends AbstractController
             $entityManager = $managerRegistry->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('form');
+            return $this->redirectToRoute('FormUser');
         }
 
         return $this->render('index.html.twig', [
