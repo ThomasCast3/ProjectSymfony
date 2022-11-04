@@ -2,22 +2,30 @@
 
 namespace App\Entity;
 
-use App\Repository\CompanyRepository;
+use App\Repository\SkillsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CompanyRepository::class)]
-class Company
+#[ORM\Entity(repositoryClass: SkillsRepository::class)]
+class Skills
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: "Skills")]
+    private  $User;
+
+    #[ORM\ManyToMany(targetEntity: Offer::class, mappedBy: "Skills")]
+    private  $Offer;
+
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(targetEntity: Offer::class,mappedBy: "Companys")]
-    private  $offer ;
+    public function __construct(){
+        $this->Skills = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {

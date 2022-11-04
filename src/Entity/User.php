@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -13,8 +14,8 @@ class User
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idUser = null;
+    #[ORM\ManyToMany(targetEntity: Skills::class, inversedBy: "users")]
+    private  $skillUser;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
@@ -30,6 +31,10 @@ class User
 
     #[ORM\Column]
     private ?int $age = null;
+
+    public function __construct(){
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
